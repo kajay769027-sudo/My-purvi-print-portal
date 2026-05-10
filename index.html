@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purvi Print Portal - सभी सरकारी सेवाएँ एक जगह</title>
+<meta name="description" content="आधार, PAN, पासपोर्ट, वोटर ID, DL, राशन कार्ड, UPPCL बिजली बिल, मोबाइल रिचार्ज - सभी आधिकारिक लिंक">
+<meta name="keywords" content="Aadhaar, PAN, Passport, Voter ID, DL, Ration Card, UPPCL, Mobile Recharge, Government Services India">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Purvi Print Portal">
+<meta property="og:description" content="सभी सरकारी सेवाएँ एक ही जगह - आधिकारिक लिंक">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+body { background:#f4f7fc; color:#111827; line-height:1.6; overflow-x:hidden; }
+.topbar { background:#0b2f78; color:#fff; padding:12px 30px; display:flex; justify-content:space-between; font-size:14px; flex-wrap:wrap; align-items:center; position:sticky; top:0; z-index:1001; }
+.topbar i { margin-right:8px; }
+header { background:#fff; padding:20px 50px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 4px 20px rgba(0,0,0,.08); position:sticky; top:56px; z-index:1000; }
+.logo { display:flex; align-items:center; gap:20px; }
+.logo-circle { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,#1e40af,#f97316); display:flex; align-items:center; justify-content:center; font-size:32px; color:#fff; box-shadow:0 8px 25px rgba(30,64,175,.3); }
+.logo h1 { font-size:36px; color:#0b2f78; font-weight:800; line-height:1.1; }
+.logo span { color:#f97316; }
+.logo p { font-size:14px; font-weight:500; color:#6b7280; }
+nav { display:flex; gap:25px; align-items:center; }
+nav a { text-decoration:none; color:#374151; font-weight:600; font-size:15px; transition:.3s; padding:8px 16px; border-radius:8px; position:relative; }
+nav a.active, nav a:hover { background:#eff6ff; color:#2563eb; }
+.support-btn { background:linear-gradient(135deg,#2563eb,#1d4ed8); color:#fff; padding:14px 28px; border-radius:15px; text-decoration:none; font-weight:600; box-shadow:0 5px 20px rgba(37,99,235,.3); transition:.3s; }
+.support-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(37,99,235,.4); }
+
+/* Hero Section */
+.hero { padding:90px 50px; background:linear-gradient(135deg,#eef4ff 0%,#f8fafc 100%); text-align:center; }
+.hero h2 { font-size:62px; line-height:1.2; font-weight:800; color:#0b2f78; margin-bottom:25px; }
+.hero h2 span { background:linear-gradient(135deg,#f97316,#ea580c); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.hero p { font-size:20px; line-height:1.8; margin-bottom:50px; color:#4b5563; max-width:800px; margin-left:auto; margin-right:auto; }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; max-width:1400px; margin:0 auto; }
+.service-card { background:#fff; padding:40px 30px; border-radius:25px; text-align:center; box-shadow:0 15px 40px rgba(0,0,0,.08); transition:.3s; border:1px solid #f8fafc; position:relative; overflow:hidden; }
+.service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background:linear-gradient(90deg,var(--card-color,#2563eb),#f97316); }
+.service-card:hover { transform:translateY(-12px); box-shadow:0 25px 60px rgba(0,0,0,.15); }
+.service-logo { width:90px; height:90px; border-radius:20px; margin:0 auto 25px; background:#f8fafc; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,.1); border:3px solid #fff; }
+.service-card h3 { font-size:24px; margin-bottom:15px; color:#1f2937; font-weight:700; }
+.service-card p { font-size:15px; color:#6b7280; line-height:1.7; margin-bottom:25px; }
+.service-btn { display:inline-block; padding:14px 28px; background:linear-gradient(135deg,#2563eb,#1d4ed8); color:#fff; text-decoration:none; border-radius:15px; font-weight:600; transition:.3s; box-shadow:0 5px 15px rgba(37,99,235,.3); }
+.service-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(37,99,235,.4); }
+
+/* Page Sections */
+.page-section { padding:100px 50px; max-width:1200px; margin:0 auto; display:none; }
+.page-section.active { display:block; }
+.section-title { text-align:center; margin-bottom:60px; }
+.section-title h2 { font-size:52px; color:#0b2f78; margin-bottom:20px; }
+.section-title h2 span { color:#f97316; }
+.section-title p { font-size:18px; color:#4b5563; max-width:700px; margin:0 auto; }
+
+/* About Page */
+.about-content { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.about-text p { font-size:18px; line-height:1.8; color:#374151; margin-bottom:25px; }
+.team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; margin-top:50px; }
+.team-card { background:#fff; padding:30px; border-radius:20px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.08); }
+.team-card img { width:100px; height:100px; border-radius:50%; margin-bottom:20px; object-fit:cover; }
+
+/* Contact Page */
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+.contact-info { background:#fff; padding:40px; border-radius:25px; box-shadow:0 15px 40px rgba(0,0,0,.08); }
+.contact-info i { font-size:48px; color:#10b981; margin-bottom:20px; display:block; }
+.contact-info h4 { font-size:24px; margin-bottom:15px; color:#0b2f78; }
+.contact-form { background:#fff; padding:40px; border-radius:25px; box-shadow:0 15px 40px rgba(0,0,0,.08); }
+.form-group { margin-bottom:25px; }
+.form-group input, .form-group textarea { width:100%; padding:16px; border:2px solid #e5e7eb; border-radius:12px; font-size:16px; transition:.3s; }
+.form-group input:focus, .form-group textarea:focus { outline:none; border-color:#2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.1); }
+.form-btn { width:100%; padding:18px; background:linear-gradient(135deg,#2563eb,#1d4ed8); border:none; color:#fff; border-radius:12px; font-size:16px; font-weight:600; cursor:pointer; transition:.3s; }
+.form-btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(37,99,235,.4); }
+
+/* Policy Pages */
+.policy-content { background:#fff; padding:60px; border-radius:25px; box-shadow:0 20px 60px rgba(0,0,0,.08); line-height:1.8; }
+.policy-content h3 { color:#0b2f78; font-size:24px; margin:35px 0 20px; }
+.policy-content p { font-size:16px; color:#374151; margin-bottom:20px; }
+.policy-highlight { background:#f0f9ff; padding:25px; border-radius:15px; border-left:5px solid #2563eb; margin:30px 0; }
+
+/* Stats */
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; margin:60px auto; max-width:1200px; }
+.stat-box { background:#fff; padding:40px 30px; text-align:center; border-radius:25px; box-shadow:0 15px 40px rgba(0,0,0,.08); }
+.stat-box h5 { font-size:48px; background:linear-gradient(135deg,#2563eb,#1d4ed8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:15px; }
+.stat-box p { font-size:16px; color:#6b7280; }
+
+/* Footer */
+footer { background:linear-gradient(135deg,#081b4b 0%,#0b2f78 100%); color:#fff; padding:80px 50px 40px; margin-top:80px; }
+.footer-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:50px; margin-bottom:40px; }
+.footer-grid h4 { margin-bottom:25px; font-size:26px; }
+.footer-grid p, .footer-grid a { color:#d1d5db; text-decoration:none; line-height:2; transition:.3s; }
+.footer-grid a:hover { color:#60a5fa; }
+.socials { display:flex; gap:15px; margin-top:25px; }
+.socials a { width:50px; height:50px; border-radius:50%; background:#2563eb; display:flex; align-items:center; justify-content:center; color:#fff; transition:.3s; }
+.socials a:hover { background:#1d4ed8; transform:translateY(-3px); }
+.copyright { text-align:center; padding-top:30px; border-top:1px solid rgba(255,255,255,.15); color:#9ca3af; }
+
+/* WhatsApp */
+.whatsapp { position:fixed; bottom:25px; right:25px; width:70px; height:70px; border-radius:50%; background:#25d366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:36px; box-shadow:0 15px 35px rgba(37,211,102,.4); transition:.3s; z-index:1002; text-decoration:none; }
+.whatsapp:hover { transform:translateY(-5px); box-shadow:0 20px 45px rgba(37,211,102,.5); }
+
+/* Responsive */
+@media(max-width:1200px) { .about-content { grid-template-columns:1fr; text-align:center; } }
+@media(max-width:991px) { header { flex-direction:column; gap:25px; padding:20px 30px; } nav { flex-wrap:wrap; justify-content:center; gap:15px; } .contact-grid { grid-template-columns:1fr; } }
+@media(max-width:768px) { .hero h2 { font-size:45px; } .services-grid { grid-template-columns:1fr; } .page-section { padding:60px 20px; } }
+@media(max-width:600px) { header, .hero, footer { padding-left:20px; padding-right:20px; } .hero h2 { font-size:36px; } nav { gap:10px; font-size:14px; } }
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">
+<div>📢 सभी सरकारी सेवाएँ एक ही जगह - आसान, तेज़, सुरक्षित! ✅</div>
+<div><i class="fa-solid fa-phone"></i> +91 9123456789 | <i class="fa-solid fa-envelope"></i> support@purviprintportal.in</div>
+</div>
+
+<!-- Header -->
+<header>
+<div class="logo">
+<div class="logo-circle"><i class="fa-solid fa-print"></i></div>
+<div>
+<h1>पुर्वी <span>प्रिंट पोर्टल</span></h1>
+<p>आधिकारिक दस्तावेज़ डाउनलोड करें</p>
+</div>
+</div>
+<nav>
+<a href="#home" class="active">होम</a>
+<a href="#services">सेवाएँ</a>
+<a href="#about">हमारे बारे में</a>
+<a href="#contact">संपर्क</a>
+<a href="#privacy">प्राइवेसी</a>
+<a href="#disclaimer">डिस्क्लेमर</a>
+</nav>
+<a href="#contact" class="support-btn"><i class="fa-solid fa-headset"></i> सपोर्ट</a>
+</header>
+
+<!-- Home Page -->
+<section id="home" class="hero page-section active">
+<h2>सभी सरकारी सेवाएँ <span>एक ही जगह!</span></h2>
+<p>आधिकारिक वेबसाइट के डायरेक्ट लिंक - 100% सुरक्षित। आधार, PAN, पासपोर्ट, बिल भुगतान सब कुछ यहाँ!</p>
+
+<div class="services-grid">
+<div class="service-card" style="--card-color:#ef4444;">
+<div class="service-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/UIDAI_Logo.svg/120px-UIDAI_Logo.svg.png" alt="Aadhaar" style="width:60px;height:60px;"></div>
+<h3>आधार कार्ड</h3>
+<p>डाउनलोड, अपडेट, स्टेटस चेक</p>
+<a href="https://uidai.gov.in" target="_blank" class="service-btn">अभी जाएँ →</a>
+</div>
+
+<div class="service-card" style="--card-color:#2563eb;">
+<div class="service-logo"><img src="https://www.incometaxindia.gov.in/PublishingImages/LogoNew.png" alt="PAN" style="width:60px;height:60px;"></div>
+<h3>पैन कार्ड</h3>
+<p>डाउनलोड, स्टेटस, नया PAN</p>
+<a href="https://www.incometax.gov.in" target="_blank" class="service-btn">अभी जाएँ →</a>
+</div>
+
+<div class="service-card" style="--card-color:#10b981;">
+<div class="service-logo"><img src="https://passportindia.gov.in/AppOnlineProject/logo.png" alt="Passport" style="width:60px;"></div>
+<h3>पासपोर्ट सेवा</h3>
+<p>आवेदन, स्टेटस, ट्रैकिंग</p>
+<a href="https://passportindia.gov.in" target="_blank" class="service-btn">अभी जाएँ →</a>
+</div>
+
+<div class="service-card" style="--card-color:#9333ea;">
+<div class="service-logo"><img src="https://eci.gov.in/images/logo_new.png" alt="Voter ID" style="width:60px;height:60px;"></div>
+<h3>वोटर आईडी</h3>
+<p>वोटर कार्ड डाउनलोड</p>
+<a href="https://voters.eci.gov.in" target="_blank" class="service-btn">अभी जाएँ →</a>
+</div>
+
+<div class="service-card" style="--card-color:#f97316;">
+<div class="service-logo"><img src="https://nfsa.gov.in/portal/images/logo.png" alt="Ration Card" style="width:60px;"></div>
+<h3>राशन कार्ड</h3>
+<p>डाउनलोड, स्टेटस चेक</p>
+<a href="https://nfsa.gov.in" target="_blank" class="service-btn">अभी जाएँ →</a>
+</div>
+
+<div class="service-card" style="--card-color:#06b6d4;">
+<div class="service-logo"><img src="https://parivahan.gov.in/parivahan//images/logo.png" alt="DL" style="width:60px;height:60px;"></div>
+<h3>ड्राइविंग लाइसेंस</h3>
+<p>DL डाउनलोड, RC स्टेटस</p>
+<a href="https://parivahan.gov.in" target="_blank" class="service-btn">अभी जाएँ →</a>
+</div>
+
+<div class="service-card" style="--card-color:#eab308;">
+<div class="service-logo"><img src="https://uppcl.org/images/uppcl-logo.png" alt="UPPCL" style="width:70px;height:60px;"></div>
+<h3>बिजली बिल (UPPCL)</h3>
+<p>UPPCL बिल भुगतान, डाउनलोड</p>
+<a href="https://www.uppcl.org/uppcl/" target="_blank" class="service-btn">भुगतान करें →</a>
+</div>
+
+<div class="service-card" style="--card-color:#ec4899;">
+<div class="service-logo"><img src="https://pmjay.gov.in/images/pmjay_logo.png" alt="Ayushman" style="width:60px;"></div>
+<h3>आयुष्मान कार्ड</h3>
+<p>हेल्थ कार्ड डाउनलोड</p>
+<a href="https://beneficiary.nha.gov.in" target="_blank" class="service-btn">अभी जाएँ →</a>
+</div>
+
+<div class="service-card" style="--card-color:#dc2626;">
+<div class="service-logo"><i class="fa-solid fa-mobile-retro fa-3x" style="color:#25d366;"></i></div>
+<h3>मोबाइल रिचार्ज</h3>
+<p>जियो, एयरटेल, वोडाफोन</p>
+<a href="https://www.airtel.in/recharge" target="_blank" class="service-btn">रिचार्ज करें →</a>
+</div>
+
+<div class="service-card" style="--card-color:#2563eb;">
+<div class="service-logo"><img src="https://csc.gov.in/images/csc_logo.png" alt="CSC" style="width:60px;height:60px;"></div>
+<h3>CSC सेवाएँ</h3>
+<p>सभी सरकारी सेवाएँ</p>
+<a href="https://csc.gov.in" target="_blank" class="service-btn">अभी जाएँ →</a>
+</div>
+</div>
+</section>
+
+<!-- Services Section (Same as Home) -->
+<section id="services" class="page-section">
+<div class="section-title">
+<h2>हमारी <span>सभी सेवाएँ</span></h2>
+<p>हर महत्वपूर्ण सेवा के लिए डायरेक्ट आधिकारिक लिंक</p>
+</div>
+<!-- Same services grid as home -->
+<div class="services-grid">
+<!-- Copy same 10 service cards from home section -->
+</div>
+</section>
+
+<!-- About Page -->
+<section id="about" class="page-section">
+<div class="section-title">
+<h2>हमारे <span>बारे में</span></h2>
+<p>पुर्वी प्रिंट पोर्टल - भारत का सबसे तेज़ सरकारी सेवाएँ पोर्टल</p>
+</div>
+<div class="about-content">
+<div class="about-text">
+<p><strong>पुर्वी प्रिंट पोर्टल</strong> एक निःशुल्क प्लेटफॉर्म है जो सभी सरकारी सेवाओं के <strong>आधिकारिक लिंक</strong> एक जगह प्रदान करता है।</p>
+<p>हमारा लक्ष्य: आम नागरिकों को बिना किसी परेशानी के सरकारी दस्तावेज़ डाउनलोड करने और सेवाओं तक पहुँचने में मदद करना।</p>
+<p><strong>विशेषताएँ:</strong></p>
+<ul style="font-size:18px;color:#374151;line-height:2;padding-left:25px;">
+<li>✅ केवल आधिकारिक लिंक</li>
+<li>✅ कोई डेटा संग्रह नहीं</li>
+<li>✅ 100% सुरक्षित</li>
+<li>✅ मोबाइल फ्रेंडली</li>
+</ul>
+</div>
+<div style="text-align:center;">
+<img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=600&auto=format&fit=crop" alt="About Us" style="border-radius:25px;box-shadow:0 20px 60px rgba(0,0,0,.15);max-width:100%;">
+</div>
+</div>
+</section>
+
+<!-- Contact Page -->
+<section id="contact" class="page-section">
+<div class="section-title">
+<h2>हमसे <span>संपर्क करें</span></h2>
+<p>आपकी हर समस्या का समाधान 24 घंटे में</p>
+</div>
+<div class="contact-grid">
+<div class="contact-info">
+<i class="fa-solid fa-phone"></i>
+<h4>फ़ोन सपोर्ट</h4>
+<p>+91 91234 56789<br>सोम-शनि: 9 AM - 7 PM</p>
+
+<i class="fa-solid fa-envelope"></i>
+<h4>ईमेल</h4>
+<p>support@purviprintportal.in<br><strong>24 घंटे में जवाब</strong></p>
+
+<i class="fa-solid fa-whatsapp"></i>
+<h4>व्हाट्सएप</h4>
+<p>तुरंत सहायता के लिए<br>+91 91234 56789</p>
+</div>
+<div class="contact-form">
+<h3 style="font-size:26px;color:#0b2f78;margin-bottom:30px;">संदेश भेजें</h3>
+<form>
+<div class="form-group">
+<input type="text" placeholder="आपका नाम *" required>
+</div>
+<div class="form-group">
+<input type="email" placeholder="आपका ईमेल *" required>
+</div>
+<div class="form-group">
+<input type="tel" placeholder="मोबाइल नंबर">
+</div>
+<div class="form-group">
+<textarea placeholder="आपका संदेश... *" rows="5" required></textarea>
+</div>
+<button type="submit" class="form-btn">संदेश भेजें <i class="fa-solid fa-paper-plane"></i></button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- Privacy Policy -->
+<section id="privacy" class="page-section">
+<div class="section-title">
+<h2>गोपनीयता <span>नीति</span></h2>
+<p>आपकी प्राइवेसी हमारी प्राथमिकता</p>
+</div>
+<div class="policy-content">
+<h3>1. डेटा संग्रह</h3>
+<p>हम <strong>कोई भी व्यक्तिगत जानकारी संग्रह नहीं करते</strong>। यह प्लेटफॉर्म केवल सरकारी वेबसाइट्स के लिंक प्रदान करता है।</p>
+
+<h3>2. कुकीज़ का उपयोग</h3>
+<p>न्यूनतम कुकीज़ केवल वेबसाइट के बेहतर प्रदर्शन के लिए। कोई ट्रैकिंग कुकीज़ नहीं।</p>
+
+<h3>3. थर्ड पार्टी लिंक</h3>
+<p>सभी लिंक आधिकारिक सरकारी वेबसाइट के हैं। उनकी गोपनीयता नीति अलग से लागू होती है।</p>
+
+<div class="policy-highlight">
+<i class="fa-solid fa-shield-halved" style="color:#10b981;font-size:24px;margin-right:10px;float:left;"></i>
+<strong>हमारा वादा:</strong> आपका कोई डेटा सेव नहीं होता। 100% सुरक्षित!
+</div>
+
+<p style="text-align:center;font-size:18px;color:#6b7280;margin-top:40px;">
+अद्यतन: <strong>जनवरी 2026</strong>
+</p>
+</div>
+</section>
+
+<!-- Disclaimer -->
+<section id="disclaimer" class="page-section">
+<div class="section-title">
+<h2>डिस्क्लेमर <span>सूचना</span></h2>
+<p>महत्वपूर्ण कानूनी जानकारी</p>
+</div>
+<div class="policy-content">
+<h3>1. सेवा का स्वरूप</h3>
+<p>यह वेबसाइट केवल <strong>आधिकारिक लिंक</strong> प्रदान करती है। हम कोई सेवा सीधे प्रदान नहीं करते।</p>
+
+<h3>2. जिम्मेदारी</h3>
+<p>लिंक की गई वेबसाइट्स की सामग्री, सटीकता या उपलब्धता के लिए हम जिम्मेदार नहीं।</p>
+
+<h3>3>सटीकता की गारंटी नहीं</h3>
+<p>हालांकि हम लिंक को अपडेट रखने का प्रयास करते हैं, किसी परिवर्तन के लिए जिम्मेदार नहीं।</p>
+
+<div class="policy-highlight">
+<strong>सुझाव:</strong> हमेशा आधिकारिक वेबसाइट पर जाकर सेवाएँ लें।
+</div>
+</div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+<div class="stat-box">
+<h5>15,000+</h5>
+<p>खुशहाल उपयोगकर्ता</p>
+</div>
+<div class="stat-box">
+<h5>50+</h5>
+<p>सरकारी सेवाएँ</p>
+</div>
+<div class="stat-box">
+<h5>100%</h5>
+<p>सुरक्षित लिंक</p>
+</div>
+<div class="stat-box">
+<h5>24/7</h5>
+<p>उपलब्ध</p>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="footer-grid">
+<div>
+<h4>पुर्वी प्रिंट पोर्टल</h4>
+<p>सभी सरकारी सेवाएँ एक क्लिक दूर। केवल आधिकारिक लिंक!</p>
+<div class="socials">
+<a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+<a href="https://t.me" target="_blank"><i class="fab fa-telegram"></i></a>
+<a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+</div>
+<div>
+<h4>त्वरित लिंक</h4>
+<p><a href="#home">होम</a></p>
+<p><a href="#services">सेवाएँ</a></p>
+<p><a href="#about">हमारे बारे में</a></p>
+<p><a href="#privacy">प्राइवेसी पॉलिसी</a></p>
+</div>
+<div>
+<h4>संपर्क</h4>
+<p>📞 +91 91234 56789</p>
+<p>✉ support@purviprintportal.in</p>
+<p>📍 भारत</p>
+<p>🕒 24x7 उपलब्ध</p>
+</div>
+<div>
+<h4>न्यूज़लेटर</h4>
+<p>नई सेवाओं की जानकारी पाने के लिए</p>
+<input type="email" placeholder="ईमेल दर्ज करें" style="width:100%;padding:16px;border-radius:12px;border:none;margin-bottom:15px;">
+<button style="width:100%;padding:16px;background:#2563eb;color:#fff;border:none;border-radius:12px;font-weight:600;">सब्सक्राइब करें</button>
+</div>
+</div>
+<div class="copyright">
+© 2026 पुर्वी प्रिंट पोर्टल | सभी अधिकार सुरक्षित | Made in 🇮🇳 with ❤️
+</div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/919123456789?text=नमस्ते!%20Purvi%20Print%20Portal%20के%20बारे%20में%20जानना%20है" class="whatsapp" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Navigation
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('.page-section');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            
+            // Remove active class
+            navLinks.forEach(l => l.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
+            
+            // Add active class
+            this.classList.add('active');
+            document.getElementById(targetId).classList.add('active');
+            
+            // Smooth scroll
+            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+    
+    // Form submit
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('धन्यवाद! आपका संदेश भेज दिया गया। 24 घंटे में जवाब मिलेगा।');
+        this.reset();
+    });
+    
+    // Stats animation
+    const stats = document.querySelectorAll('.stat-box h5');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'countUp 2s ease-out';
+            }
+        });
+    });
+    stats.forEach(stat => observer.observe(stat));
+});
+</script>
+
+</body>
+</html>
